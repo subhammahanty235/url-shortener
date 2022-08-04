@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{% block title %} URL SHORTENER Statistics {% endblock%}</h1>
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Short</th>
+            <th scope="col">Original</th>
+            <th scope="col">Clicks</th>
+            <th scope="col">Creation Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for url in urls %}
+          <tr>
+               <th scope="row">{{ url['id'] }}</th>
+<!--               <td>{{ url['short_url'] }}</td>-->
+               <td><a href="{{ url['short_url']}}">{{ url['short_url'] }}</a> </td>
+<!--               <td>{{ url['original_url'] }}</td>-->
+               <td><a href="{{ url['original_url']}}">{{ url['original_url'] }}</a> </td>
+               <td>{{ url['clicks'] }}</td>
+               <td>{{ url['created'] }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
